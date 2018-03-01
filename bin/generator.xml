@@ -14,27 +14,12 @@
 	<entry key="namespace">member</entry>
 
 	<entry key="outRoot">/Users/apple/Documents</entry>
-	
-	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: t_,v_ -->
-	<!--<entry key="tableRemovePrefixes">QD_</entry>-->
-	
-	<entry key="jdbc.username">root</entry>
-	<entry key="jdbc.password">xE4G12nCQLav</entry>
-		
+
 	<!-- oracle需要指定jdbc.schema,并且可能要大写，其它数据库忽略此项配置
 	<entry key="jdbc.schema">BCACQ</entry>
 	<entry key="jdbc.catalog">BCACQ</entry>
 	  -->
-	
-	<!-- 数据库类型至java类型映射
-	<entry key="java_typemapping.java.lang.Byte">Integer</entry>
-	<entry key="java_typemapping.java.lang.Short">Integer</entry>
-	<entry key="java_typemapping.java.lang.String">String</entry>
-	<entry key="java_typemapping.java.math.BigDecimal">BigDecimal</entry>
-	<entry key="java_typemapping.java.lang.Long">Long</entry>
-	-->
-	<!-- 
-	-->
+
 	<entry key="java_typemapping.java.sql.Timestamp">java.util.Date</entry>
 	<entry key="java_typemapping.java.sql.Date">java.util.Date</entry>
 	<entry key="java_typemapping.java.sql.Time">java.util.Date</entry>	
@@ -45,10 +30,12 @@
 	<entry key="jdbc.url">jdbc:oracle:thin:@210.14.141.236:62521:yidee202</entry>
 	<entry key="jdbc.driver">oracle.jdbc.driver.OracleDriver</entry>
 	-->
-	
+	<entry key="jdbc.username">root</entry>
+	<entry key="jdbc.password"></entry>
+
 	<!-- Mysql 
 	-->
-	<entry key="jdbc.url">jdbc:mysql://123.196.116.15:3307/bfq_system</entry>
+	<entry key="jdbc.url">jdbc:mysql://127.0.0.1/myblog</entry>
 	<entry key="jdbc.driver">com.mysql.jdbc.Driver</entry>
 	
 	<!-- SQLServer2000 

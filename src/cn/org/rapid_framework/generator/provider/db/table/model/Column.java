@@ -5,7 +5,6 @@ package cn.org.rapid_framework.generator.provider.db.table.model;
 import java.util.List;
 
 import cn.org.rapid_framework.generator.GeneratorProperties;
-import cn.org.rapid_framework.generator.provider.db.table.TableFactory;
 import cn.org.rapid_framework.generator.provider.db.table.model.ForeignKey.ReferenceKey;
 import cn.org.rapid_framework.generator.provider.db.table.model.util.ColumnHelper;
 import cn.org.rapid_framework.generator.util.GLogger;
@@ -17,8 +16,8 @@ import cn.org.rapid_framework.generator.util.typemapping.JavaPrimitiveTypeMappin
 import cn.org.rapid_framework.generator.util.typemapping.JdbcType;
 /**
  * 用于生成代码的Columb对象.对应数据库表column
- * @author badqiu
- * @email badqiu(a)gmail.com
+ * @author
+ * @email
  */
 public class Column {
 	/**
