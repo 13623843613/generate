@@ -1,0 +1,28 @@
+<#assign className = table.className>   
+<#assign classNameLowerCase = className?lower_case>
+<#assign classNameFirstLower = table.classNameFirstLower>   
+<section th:fragment="form-${classNameFirstLower}">
+<div id="centerDiv" class="hide">
+			<form id="${classNameFirstLower}Form" method="POST" onsubmit="return false;">
+			<table cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+					<tr style="display:none">
+						<td colspan="2"><input type="hidden" name="id" value=""/></td>
+					</tr>		
+					 <#list table.columns as column>
+					 	<tr>
+							<td><font color="red">*</font>${column.remarks}：</td>
+							<td>
+								<input name="${column.columnNameLower}" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					</#list>
+				</tbody>
+			</table>
+	 </form>
+</div>
+</section>

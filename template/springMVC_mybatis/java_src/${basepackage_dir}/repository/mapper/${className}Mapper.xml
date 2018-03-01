@@ -1,0 +1,107 @@
+<#assign className = table.className>
+<#assign classNameLower = className?uncap_first> 
+<#assign classNameFirstLower = table.classNameFirstLower>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="${basepackage}.repository.business.${className}Dao" > 
+ <resultMap id="BaseResultMap" type="${basepackage}.entity.business.${className}" >
+    <#list table.columns as column>
+    <result column="${column.sqlName}" property="${column.columnNameLower}" jdbcType="VARCHAR"/>
+    </#list>
+  </resultMap>
+
+	<sql id="Base_Column_List" >
+		<trim suffix="" suffixOverrides=",">
+			 <#list table.columns as column>${column.sqlName},</#list>
+		</trim>
+	</sql>
+   
+  	<sql id="Where_Column_List" >
+  		<where>
+		  	 1=1
+  			<#list table.columns as column>
+  				<if test="${column.columnNameLower} !=null and ${column.columnNameLower} != ''">
+  					and ${column.sqlName} = ${'#{'+column.columnNameLower+'}'}
+  				</if>
+		 		
+			</#list>
+  		</where>
+	</sql>
+	
+	<select id="findByPage" resultMap="BaseResultMap"  parameterType="${basepackage}.entity.business.${className}">
+		select <include refid="Base_Column_List" /> from ${table.sqlName} 
+		<where>
+		1=1
+  			<#list table.columns as column>
+  				<if test="param.${column.columnNameLower} !=null and param.${column.columnNameLower} != ''">
+  					and ${column.sqlName} = ${'#{'+'param.'+column.columnNameLower+'}'}
+  				</if>
+		 		
+			</#list>
+  		</where>
+	</select>
+	
+	<select id="find" resultMap="BaseResultMap"  parameterType="${basepackage}.entity.business.${className}">
+		select <include refid="Base_Column_List" /> from ${table.sqlName} 
+		<include refid="Where_Column_List" />
+	</select>
+	
+	<select id="findInfo" resultMap="BaseResultMap"  parameterType="${basepackage}.entity.business.${className}">
+		select <include refid="Base_Column_List" /> from ${table.sqlName} 
+		<include refid="Where_Column_List" />
+	</select>
+	
+	<insert id="insert">
+		insert into ${table.sqlName} (
+			<trim suffix="" suffixOverrides=",">
+				 <#list table.columns as column>${column.sqlName},</#list>
+			</trim>
+		) values (
+			<trim suffix="" suffixOverrides=",">
+				 <#list table.columns as column>${'#{'+column.columnNameLower+'}'},</#list>
+			</trim>
+		)
+	</insert>
+	
+  <insert id="insertSelective" parameterType="${basepackage}.entity.business.${className}">
+	 insert into ${table.sqlName}
+	 <trim prefix="(" suffix=")" suffixOverrides="," >
+	 <#list table.columns as column>
+		 	<if test="${column.columnNameLower} !=null and ${column.columnNameLower} != ''">
+		 	${column.sqlName},
+		 	</if>
+		</#list>
+	 </trim>
+	 <trim prefix="values (" suffix=")" suffixOverrides="," >
+	  <#list table.columns as column>
+		 	<if test="${column.columnNameLower} !=null and ${column.columnNameLower} != ''">
+		 	 ${'#{'+column.columnNameLower+'}'},
+		 	</if>
+		</#list>
+	 </trim>
+	 </insert>
+	
+	<update id="update" parameterType="${basepackage}.entity.business.${className}">
+		update ${table.sqlName} set 
+		<trim suffix="" suffixOverrides=",">
+		 <#list table.columns as column>
+		 	<if test="${column.columnNameLower} !=null and ${column.columnNameLower} != ''">
+		 	${column.sqlName} = ${'#{'+column.columnNameLower+'}'},
+		 	</if>
+		 </#list>
+		</trim>
+		where id=${"#{"+table.columns[0]+"}"}
+	</update>
+	
+	<delete id="delete">
+		delete from ${table.sqlName} where id=${"#{"+table.columns[0]+"}"}
+	</delete>
+	
+	<delete id="deleteByIds">
+		delete from ${table.sqlName} where id in
+		<foreach collection="list" item="obj" separator="," open="(" close=")">
+			${"#{"+"obj."+table.columns[0]+"}"}
+		</foreach>
+	</delete>
+</mapper>   

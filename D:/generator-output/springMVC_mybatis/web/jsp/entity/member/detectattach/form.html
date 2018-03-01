@@ -1,0 +1,103 @@
+<section th:fragment="form-detectAttach">
+<div id="centerDiv" class="hide">
+			<form id="detectAttachForm" method="POST" onsubmit="return false;">
+			<table cellspacing="0" cellpadding="0" border="0">
+				<tbody>
+					<tr style="display:none">
+						<td colspan="2"><input type="hidden" name="id" value=""/></td>
+					</tr>		
+					 	<tr>
+							<td><font color="red">*</font>主键：</td>
+							<td>
+								<input name="id" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					 	<tr>
+							<td><font color="red">*</font>维修ID：</td>
+							<td>
+								<input name="repairId" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					 	<tr>
+							<td><font color="red">*</font>责任险（1：意外 2：翻新  2：延保）：</td>
+							<td>
+								<input name="dutyType" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					 	<tr>
+							<td><font color="red">*</font>保险类型（1：保内 2：保外）：</td>
+							<td>
+								<input name="insureType" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					 	<tr>
+							<td><font color="red">*</font>备件名称：</td>
+							<td>
+								<input name="spareName" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					 	<tr>
+							<td><font color="red">*</font>备件金额：</td>
+							<td>
+								<input name="spareMoney" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					 	<tr>
+							<td><font color="red">*</font>图片名：</td>
+							<td>
+								<input name="picName" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					 	<tr>
+							<td><font color="red">*</font>图片URL：</td>
+							<td>
+								<input name="picUrl" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+					 	<tr>
+							<td><font color="red">*</font>备注：</td>
+							<td>
+								<input name="remark" jyValidate="required"/>
+	 						</td>
+ 					   </tr>
+						<tr>
+							<td> &nbsp;</td>
+							<td> &nbsp;</td>
+	 					</tr>
+				</tbody>
+			</table>
+	 </form>
+</div>
+</section>

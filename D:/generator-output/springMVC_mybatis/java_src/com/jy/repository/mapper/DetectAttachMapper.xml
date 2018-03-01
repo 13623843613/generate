@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.jy.repository.business.DetectAttachDao" > 
+ <resultMap id="BaseResultMap" type="com.jy.entity.business.DetectAttach" >
+    <result column="id" property="id" jdbcType="VARCHAR"/>
+    <result column="repair_id" property="repairId" jdbcType="VARCHAR"/>
+    <result column="duty_type" property="dutyType" jdbcType="VARCHAR"/>
+    <result column="insure_type" property="insureType" jdbcType="VARCHAR"/>
+    <result column="spare_name" property="spareName" jdbcType="VARCHAR"/>
+    <result column="spare_money" property="spareMoney" jdbcType="VARCHAR"/>
+    <result column="pic_name" property="picName" jdbcType="VARCHAR"/>
+    <result column="pic_url" property="picUrl" jdbcType="VARCHAR"/>
+    <result column="remark" property="remark" jdbcType="VARCHAR"/>
+  </resultMap>
+
+	<sql id="Base_Column_List" >
+		<trim suffix="" suffixOverrides=",">
+			 id,repair_id,duty_type,insure_type,spare_name,spare_money,pic_name,pic_url,remark,
+		</trim>
+	</sql>
+   
+  	<sql id="Where_Column_List" >
+  		<where>
+		  	 1=1
+  				<if test="id !=null and id != ''">
+  					and id = #{id}
+  				</if>
+		 		
+  				<if test="repairId !=null and repairId != ''">
+  					and repair_id = #{repairId}
+  				</if>
+		 		
+  				<if test="dutyType !=null and dutyType != ''">
+  					and duty_type = #{dutyType}
+  				</if>
+		 		
+  				<if test="insureType !=null and insureType != ''">
+  					and insure_type = #{insureType}
+  				</if>
+		 		
+  				<if test="spareName !=null and spareName != ''">
+  					and spare_name = #{spareName}
+  				</if>
+		 		
+  				<if test="spareMoney !=null and spareMoney != ''">
+  					and spare_money = #{spareMoney}
+  				</if>
+		 		
+  				<if test="picName !=null and picName != ''">
+  					and pic_name = #{picName}
+  				</if>
+		 		
+  				<if test="picUrl !=null and picUrl != ''">
+  					and pic_url = #{picUrl}
+  				</if>
+		 		
+  				<if test="remark !=null and remark != ''">
+  					and remark = #{remark}
+  				</if>
+		 		
+  		</where>
+	</sql>
+	
+	<select id="findByPage" resultMap="BaseResultMap"  parameterType="com.jy.entity.business.DetectAttach">
+		select <include refid="Base_Column_List" /> from QD_DETECT_ATTACH 
+		<where>
+		1=1
+  				<if test="param.id !=null and param.id != ''">
+  					and id = #{param.id}
+  				</if>
+		 		
+  				<if test="param.repairId !=null and param.repairId != ''">
+  					and repair_id = #{param.repairId}
+  				</if>
+		 		
+  				<if test="param.dutyType !=null and param.dutyType != ''">
+  					and duty_type = #{param.dutyType}
+  				</if>
+		 		
+  				<if test="param.insureType !=null and param.insureType != ''">
+  					and insure_type = #{param.insureType}
+  				</if>
+		 		
+  				<if test="param.spareName !=null and param.spareName != ''">
+  					and spare_name = #{param.spareName}
+  				</if>
+		 		
+  				<if test="param.spareMoney !=null and param.spareMoney != ''">
+  					and spare_money = #{param.spareMoney}
+  				</if>
+		 		
+  				<if test="param.picName !=null and param.picName != ''">
+  					and pic_name = #{param.picName}
+  				</if>
+		 		
+  				<if test="param.picUrl !=null and param.picUrl != ''">
+  					and pic_url = #{param.picUrl}
+  				</if>
+		 		
+  				<if test="param.remark !=null and param.remark != ''">
+  					and remark = #{param.remark}
+  				</if>
+		 		
+  		</where>
+	</select>
+	
+	<select id="find" resultMap="BaseResultMap"  parameterType="com.jy.entity.business.DetectAttach">
+		select <include refid="Base_Column_List" /> from QD_DETECT_ATTACH 
+		<include refid="Where_Column_List" />
+	</select>
+	
+	<select id="findInfo" resultMap="BaseResultMap"  parameterType="com.jy.entity.business.DetectAttach">
+		select <include refid="Base_Column_List" /> from QD_DETECT_ATTACH 
+		<include refid="Where_Column_List" />
+	</select>
+	
+	<insert id="insert">
+		insert into QD_DETECT_ATTACH (
+			<trim suffix="" suffixOverrides=",">
+				 id,repair_id,duty_type,insure_type,spare_name,spare_money,pic_name,pic_url,remark,
+			</trim>
+		) values (
+			<trim suffix="" suffixOverrides=",">
+				 #{id},#{repairId},#{dutyType},#{insureType},#{spareName},#{spareMoney},#{picName},#{picUrl},#{remark},
+			</trim>
+		)
+	</insert>
+	
+  <insert id="insertSelective" parameterType="com.jy.entity.business.DetectAttach">
+	 insert into QD_DETECT_ATTACH
+	 <trim prefix="(" suffix=")" suffixOverrides="," >
+		 	<if test="id !=null and id != ''">
+		 	id,
+		 	</if>
+		 	<if test="repairId !=null and repairId != ''">
+		 	repair_id,
+		 	</if>
+		 	<if test="dutyType !=null and dutyType != ''">
+		 	duty_type,
+		 	</if>
+		 	<if test="insureType !=null and insureType != ''">
+		 	insure_type,
+		 	</if>
+		 	<if test="spareName !=null and spareName != ''">
+		 	spare_name,
+		 	</if>
+		 	<if test="spareMoney !=null and spareMoney != ''">
+		 	spare_money,
+		 	</if>
+		 	<if test="picName !=null and picName != ''">
+		 	pic_name,
+		 	</if>
+		 	<if test="picUrl !=null and picUrl != ''">
+		 	pic_url,
+		 	</if>
+		 	<if test="remark !=null and remark != ''">
+		 	remark,
+		 	</if>
+	 </trim>
+	 <trim prefix="values (" suffix=")" suffixOverrides="," >
+		 	<if test="id !=null and id != ''">
+		 	 #{id},
+		 	</if>
+		 	<if test="repairId !=null and repairId != ''">
+		 	 #{repairId},
+		 	</if>
+		 	<if test="dutyType !=null and dutyType != ''">
+		 	 #{dutyType},
+		 	</if>
+		 	<if test="insureType !=null and insureType != ''">
+		 	 #{insureType},
+		 	</if>
+		 	<if test="spareName !=null and spareName != ''">
+		 	 #{spareName},
+		 	</if>
+		 	<if test="spareMoney !=null and spareMoney != ''">
+		 	 #{spareMoney},
+		 	</if>
+		 	<if test="picName !=null and picName != ''">
+		 	 #{picName},
+		 	</if>
+		 	<if test="picUrl !=null and picUrl != ''">
+		 	 #{picUrl},
+		 	</if>
+		 	<if test="remark !=null and remark != ''">
+		 	 #{remark},
+		 	</if>
+	 </trim>
+	 </insert>
+	
+	<update id="update" parameterType="com.jy.entity.business.DetectAttach">
+		update QD_DETECT_ATTACH set 
+		<trim suffix="" suffixOverrides=",">
+		 	<if test="id !=null and id != ''">
+		 	id = #{id},
+		 	</if>
+		 	<if test="repairId !=null and repairId != ''">
+		 	repair_id = #{repairId},
+		 	</if>
+		 	<if test="dutyType !=null and dutyType != ''">
+		 	duty_type = #{dutyType},
+		 	</if>
+		 	<if test="insureType !=null and insureType != ''">
+		 	insure_type = #{insureType},
+		 	</if>
+		 	<if test="spareName !=null and spareName != ''">
+		 	spare_name = #{spareName},
+		 	</if>
+		 	<if test="spareMoney !=null and spareMoney != ''">
+		 	spare_money = #{spareMoney},
+		 	</if>
+		 	<if test="picName !=null and picName != ''">
+		 	pic_name = #{picName},
+		 	</if>
+		 	<if test="picUrl !=null and picUrl != ''">
+		 	pic_url = #{picUrl},
+		 	</if>
+		 	<if test="remark !=null and remark != ''">
+		 	remark = #{remark},
+		 	</if>
+		</trim>
+		where id=#{id}
+	</update>
+	
+	<delete id="delete">
+		delete from QD_DETECT_ATTACH where id=#{id}
+	</delete>
+	
+	<delete id="deleteByIds">
+		delete from QD_DETECT_ATTACH where id in
+		<foreach collection="list" item="obj" separator="," open="(" close=")">
+			#{obj.id}
+		</foreach>
+	</delete>
+</mapper>   
