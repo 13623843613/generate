@@ -8,7 +8,21 @@
 三.代码生成器模板可以引用的相关变量  
    
 
+ 1. g.generateByTable("table_name") 方法可以引用的变量
+		table : cn.org.rapid_framework.generator.provider.db.table.model.Table  
+		
+ 2. g.generateByClass(UserInfo.class) 方法可以引用的变量
+		clazz : cn.org.rapid_framework.generator.provider.java.model.JavaClass
 
+ 3. g.generateBySql("select * from user_info where pwd=:pwd") 方法可以引用的变量
+		sql : cn.org.rapid_framework.generator.provider.db.sql.model.Sql
+
+     4.公共变量
+	    env : 系统环境变量
+		System.getProperties() :  直接引用,没有前缀
+		generator.properties 文件中的所有属性,直接引用,没有前缀
+		gg : 模板控制变量, cn.org.rapid_framework.generator.GeneratorControl
+	
 四.每个模板有gg变量可以控制自身的自定义配置 (每一个模板都会创建新的gg实例)
 	如是否生成,是否覆盖目标文件,甚至是生成其它文件
 	${gg.setIgnoreOutput(true)}: 如果为true则不生成输出文件
