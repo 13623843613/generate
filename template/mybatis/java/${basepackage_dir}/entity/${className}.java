@@ -1,9 +1,9 @@
-<#assign className = table.className>   
-<#assign classNameLower = className?uncap_first>   
-<#assign classNameFirstLower = className?uncap_first> 
-<#assign pkJavaType = table.idColumn.javaType> 
+<#assign className = table.className>
+<#assign classNameLower = className?uncap_first>
+<#assign classNameFirstLower = className?uncap_first>
+<#assign pkJavaType = table.idColumn.javaType>
 
-package ${basepackage}.entity.business;  
+package ${basepackage}.entity.business;
 import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
-<#assign className = table.className>   
-<#assign classNameLower = className?uncap_first>   
-<#assign classNameFirstLower = className?uncap_first> 
+<#assign className = table.className>
+<#assign classNameLower = className?uncap_first>
+<#assign classNameFirstLower = className?uncap_first>
 package ${basepackage}.repository.business;
 
 import org.springframework.stereotype.Repository;

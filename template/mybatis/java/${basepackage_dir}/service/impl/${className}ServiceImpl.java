@@ -14,13 +14,9 @@ import ${basepackage}.repository.business.${className}Dao;
 import ${basepackage}.entity.business.${className};
 import ${basepackage}.service.business.${className}Service;
 
-/** 
- * <p>Title: ${className}ServiceImpl.java</p>
- * <p>Description: </p> 
- * <p>Company:www.baofenqi.com</p> 
- * @author larry
- * @date  :
- * @version :1.0
+/**
+ * @author xiaotian
+ * @create 2018-03-02 上午10:24
  */
 @RestController
 public class ${className}ServiceImpl implements ${className}Service {
