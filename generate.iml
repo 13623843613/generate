@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
+
     <libelement value="jar://$MODULE_DIR$/lib/freemarker.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/h2-1.2.137.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/mysql-connector-java-5.0.5-bin.jar!/" />
